@@ -1,6 +1,6 @@
 # corona_api
 
-A new Flutter project.
+A new Flutter project just to learn working with APIs.
 
 ## Getting Started
 
