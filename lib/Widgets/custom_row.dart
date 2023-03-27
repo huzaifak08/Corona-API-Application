@@ -16,7 +16,7 @@ class CustomRow extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: width * 0.04, vertical: height * 0.009),
+          horizontal: width * 0.04, vertical: height * 0.007),
       child: Column(
         children: [
           SizedBox(height: height * 0.01),

@@ -1,5 +1,4 @@
-import 'package:corona_api/Views/splash_screen.dart';
-import 'package:flutter/material.dart';
+import 'libraries.dart';
 
 void main() {
   runApp(const MyApp());
