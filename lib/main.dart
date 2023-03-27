@@ -1,4 +1,3 @@
-import 'package:corona_api/home_screen.dart';
 import 'package:corona_api/Views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
