@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:corona_api/Utils/utils.dart';
 import 'package:corona_api/Views/world_stats.dart';
 import 'package:flutter/material.dart';
