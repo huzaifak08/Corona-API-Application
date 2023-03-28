@@ -1,3 +1,5 @@
+import 'package:corona_api/Views/details_screen.dart';
+
 import '../libraries.dart';
 
 class CountriesListScreens extends StatefulWidget {
@@ -15,7 +17,6 @@ class _CountriesListScreensState extends State<CountriesListScreens> {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -52,39 +53,65 @@ class _CountriesListScreensState extends State<CountriesListScreens> {
                       itemBuilder: (context, index) {
                         String name = snapshot.data![index]['country'];
                         if (searchController.text.isEmpty) {
-                          return Column(
-                            children: [
-                              ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(snapshot
-                                      .data![index]['countryInfo']['flag']),
-                                  backgroundColor: Colors.green.shade500,
-                                ),
-                                title: Text(snapshot.data![index]['country']),
-                                subtitle: Text(
-                                    'Cases: ${snapshot.data![index]['cases'].toString()}'),
+                          // ShortCut:
+                          var data = snapshot.data![index];
+                          return InkWell(
+                            onTap: () => nextScreen(
+                                context,
+                                DetailsScreen(
+                                  name: data['country'],
+                                  totalCases: data['cases'],
+                                  totalRecovered: data['recovered'],
+                                  totalDeaths: data['deaths'],
+                                  todayRecovered: data['todayRecovered'],
+                                  active: data['active'],
+                                  critical: data['critical'],
+                                  test: data['tests'],
+                                  image: data['countryInfo']['flag'],
+                                )),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(data['countryInfo']['flag']),
+                                backgroundColor: Colors.green.shade500,
                               ),
-                            ],
+                              title: Text(data['country']),
+                              subtitle:
+                                  Text('Cases: ${data['cases'].toString()}'),
+                            ),
                           );
                         } else if (name
                             .toLowerCase()
                             .contains(searchController.text.toLowerCase())) {
-                          return Column(
-                            children: [
-                              ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(snapshot
-                                      .data![index]['countryInfo']['flag']),
-                                  backgroundColor: Colors.green.shade500,
-                                ),
-                                title: Text(snapshot.data![index]['country']),
-                                subtitle: Text(
-                                    'Cases: ${snapshot.data![index]['cases'].toString()}'),
+                          var data = snapshot.data![index];
+
+                          return InkWell(
+                            onTap: () => nextScreen(
+                                context,
+                                DetailsScreen(
+                                  name: data['country'],
+                                  totalCases: data['cases'],
+                                  totalRecovered: data['recovered'],
+                                  totalDeaths: data['deaths'],
+                                  todayRecovered: data['todayRecovered'],
+                                  active: data['active'],
+                                  critical: data['critical'],
+                                  test: data['tests'],
+                                  image: data['countryInfo']['flag'],
+                                )),
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(snapshot
+                                    .data![index]['countryInfo']['flag']),
+                                backgroundColor: Colors.green.shade500,
                               ),
-                            ],
+                              title: Text(snapshot.data![index]['country']),
+                              subtitle: Text(
+                                  'Cases: ${snapshot.data![index]['cases'].toString()}'),
+                            ),
                           );
                         } else {
-                          Center(
+                          const Center(
                             child: Text('No Record Found!!!'),
                           );
                         }

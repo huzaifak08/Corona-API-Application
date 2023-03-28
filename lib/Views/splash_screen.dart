@@ -1,7 +1,4 @@
-import 'dart:async';
-import 'package:corona_api/Utils/utils.dart';
-import 'package:corona_api/Views/world_stats.dart';
-import 'package:flutter/material.dart';
+import 'package:corona_api/libraries.dart';
 import 'dart:math' as math;
 
 class SplashScreen extends StatefulWidget {

@@ -11,4 +11,5 @@ export 'package:corona_api/Model/world_states_model.dart';
 export 'package:corona_api/Utils/app_urls.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 export 'package:corona_api/Services/stats_services.dart';
+export 'package:corona_api/Views/world_stats.dart';
 export 'package:shimmer/shimmer.dart';
